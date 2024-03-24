@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Accordion.css";
 
-const Accordion = ({ children }) => {
+const Accordion = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
@@ -11,6 +11,7 @@ const Accordion = ({ children }) => {
   return (
     <div className="accordion">
       <div className="accordion-header" onClick={toggleAccordion}>
+        {title}
         <i
           className={`fa-solid ${isOpen ? "fa-angle-up" : "fa-angle-down"}`}
         ></i>
