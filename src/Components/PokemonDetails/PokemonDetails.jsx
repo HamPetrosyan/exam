@@ -8,6 +8,7 @@ const PokemonDetails = ({ pokemonUrl, fetchPokemonDetails }) => {
       if (!pokemonDetails) {
         const data = await fetchPokemonDetails({ url: pokemonUrl });
         setPokemonDetails(data);
+        console.log(data);
       }
     };
     loadPokemonDetails();
@@ -24,9 +25,9 @@ const PokemonDetails = ({ pokemonUrl, fetchPokemonDetails }) => {
           <div>
             <h2>Stats</h2>
             <ul>
-              {pokemonDetails.stats.map((stat, index) => (
+              {pokemonDetails.stats.map((stats, index) => (
                 <li key={index}>
-                  {stat.stat.name}: {stat.base_stat}
+                  {stats.stat.name}: {stats.base_stat}
                 </li>
               ))}
             </ul>
@@ -44,4 +45,5 @@ const PokemonDetails = ({ pokemonUrl, fetchPokemonDetails }) => {
     </div>
   );
 };
+
 export default PokemonDetails;
